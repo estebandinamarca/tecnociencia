@@ -2,7 +2,11 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  generate: {
+    minify: {
+      removeOptionalTags: false
+    },
+  },
   /*
   ** Headers of the page
   */
@@ -59,7 +63,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     }
   }
 }
