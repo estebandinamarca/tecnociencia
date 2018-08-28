@@ -31,6 +31,7 @@
   import axios from 'axios';
 
   export default {
+    layout: 'dark',
     head: {
       title: 'Index 1'
     },

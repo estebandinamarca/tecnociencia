@@ -14,6 +14,7 @@
 <script type="text/javascript">
   import axios from 'axios';
   export default {
+    layout: 'dark',
     asyncData ({ params }) {
       return axios.get(`https://itunes.apple.com/search?term=${params.slug}&limit=10`).then((response) => {
         return {
