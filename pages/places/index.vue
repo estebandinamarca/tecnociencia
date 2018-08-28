@@ -2,6 +2,7 @@
 
   <section class="places">
     <h1>Bienvenidos Places {{ project }}</h1>
+    <button class="btn btn-primary" type="button" name="button">Primaty Button</button>
     <hr>
     <h2><nuxt-link to="/">< Inicio</nuxt-link></h2>
 
@@ -49,6 +50,7 @@
       })
       .catch((e) => {
         console.log(error);
+        console.log(e);
         error({
           statusCode: 404,
           message: 'Post not found'
@@ -74,6 +76,7 @@
     //   //   }
     //   // })
     //},
+
     components: {
       place
     },

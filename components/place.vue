@@ -2,7 +2,6 @@
   <article class="place">
     <h1>{{ title }}</h1>
     <p>{{ previewText }}</p>
-    <!-- <img :src="thumbnail" :alt="title"> -->
     <nuxt-link :to="'/places/' + slug">Ver más ></nuxt-link>
     <hr>
   </article>
