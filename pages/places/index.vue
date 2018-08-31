@@ -1,5 +1,5 @@
 <template>
-
+<div class="">
   <section class="places">
     <h1>Bienvenidos Places {{ project }}</h1>
     <button class="btn btn-primary" type="button" name="button">Primaty Button</button>
@@ -18,7 +18,7 @@
     />
 
   </section>
-
+</div>
 </template>
 
 

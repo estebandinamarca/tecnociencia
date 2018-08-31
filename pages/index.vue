@@ -1,10 +1,12 @@
 <template>
+<div class="">
   <section class="container">
     <div>
       <h1>Inicio</h1>
       <h2><nuxt-link to="/places">Places</nuxt-link></h2>
     </div>
   </section>
+</div>
 </template>
 
 <style>
