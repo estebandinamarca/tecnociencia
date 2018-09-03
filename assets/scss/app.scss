@@ -1,5 +1,5 @@
 // ========================
-// Style Customizations
+// Variables Sass
 // ========================
 $theme-colors: (
   "primary": #E9E9E9,
@@ -20,7 +20,7 @@ $font-size-base: 0.9rem;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // ========================
-// Page transitions Styles
+// Page Transitions Styles
 // ========================
 // Page Transition
 .page-enter-active,
@@ -97,7 +97,7 @@ a.text-link {
 }
 
 // ========================
-// Menu
+// Nav Menu
 // ========================
 a.nuxt-link-active {
   background: $gray-300;
