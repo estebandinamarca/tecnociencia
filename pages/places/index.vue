@@ -36,7 +36,7 @@
   export default {
     //layout: 'dark',
     head: {
-      title: 'Index 1'
+      title: 'Places'
     },
 
     data() {

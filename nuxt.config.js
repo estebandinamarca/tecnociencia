@@ -27,7 +27,8 @@ module.exports = {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700'
+        //href: 'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700'
+        href: 'https://fonts.googleapis.com/css?family=Work+Sans:400,500,700'
       }
     ]
   },
@@ -68,9 +69,10 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://nostalgic-kalam-072e62.netlify.com',
-    proxyHeaders: false,
-    credentials: false
+    //baseURL: 'https://itunes.apple.com/'
+    //baseURL: (process.env.NODE_ENV === 'production' ? 'https://nostalgic-kalam-072e62.netlify.com' : 'http://localhost:3000')
+    //proxyHeaders: false,
+    //credentials: false
   },
 
   /*

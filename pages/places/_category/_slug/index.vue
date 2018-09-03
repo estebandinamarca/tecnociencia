@@ -15,8 +15,11 @@
   import axios from 'axios';
   export default {
     layout: 'dark',
+    head: {
+      title: 'Slug'
+    },
     asyncData ({ params }) {
-      return axios.get(`https://itunes.apple.com/search?term=${params.slug}&limit=10`).then((response) => {
+      return axios.get(axios.baseURL + `search?term=${params.slug}&limit=10`).then((response) => {
         return {
           data: response.data.results
         }

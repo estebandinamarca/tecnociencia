@@ -1,17 +1,17 @@
 <template>
   <div class="container-fluid">
     <section>
-      <h2>{{ $route.params.category }}</h2>
+      <h2>{{ title }} : {{ $route.params.category }}</h2>
     </section>
 
     <section class="row">
       <place
-        v-for="(place, index) in data"
+        v-for="(place, index) in data.items"
         thumbnail=""
-        :title="place.artistName"
-        :previewText="place.collectionName"
-        :key="place.collectionId + index"
-        :slug="place.artistName"
+        :title="place.fields.nombre"
+        :previewText="place.fields.extracto"
+        :key="place.sys.id + index"
+        :slug="place.fields.nombre"
       />
     </section>
   </div>
@@ -29,14 +29,15 @@
     },
     data() {
       return {
-        title: 'Category Page'
+        title: 'Category'
       }
     },
     asyncData ({ params, error }) {
-      return axios.get(`https://itunes.apple.com/search?term=${params.category}&limit=10`)
+      //return axios.get(`https://itunes.apple.com/search?term=${params.category}&limit=10`)
+      return axios.get(`https://cdn.contentful.com/spaces/t72z2lh7n4xf/entries?access_token=965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21&content_type=place&fields.categoria=${params.category}&limit=10`)
       .then((response) => {
         return {
-          data: response.data.results
+          data: response.data
         }
       })
       .catch((e) => {
