@@ -1,24 +1,27 @@
 <template>
-<div class="">
-  <section class="places">
-    <h1>Bienvenidos Places {{ project }}</h1>
-    <button class="btn btn-primary" type="button" name="button">Primaty Button</button>
-    <hr>
-    <h2><nuxt-link to="/">< Inicio</nuxt-link></h2>
+  <div class="container-fluid">
+
+    <section class="row">
+      <div class="col-12">
+        <h1>Bienvenidos Places {{ project }}</h1>
+        <button class="btn btn-primary" type="button" name="button">Primaty Button</button>
+        <hr>
+        <p><nuxt-link to="/" class="text-link d-inline-block">< Inicio</nuxt-link></p>
+      </div>
+    </section>
 
     <!-- <p>{{ data }}</p> -->
+    <section class="row">
+      <place
+        v-for="(place, index) in data"
+        :title="place.artistName"
+        :previewText="place.collectionName"
+        :key="place.collectionId + index"
+        :slug="place.artistName"
+      />
+    </section>
 
-    <place
-      v-for="place in data"
-      thumbnail=""
-      :title="place.artistName"
-      :previewText="place.collectionName"
-      :key="place.collectionId"
-      :slug="place.artistName"
-    />
-
-  </section>
-</div>
+  </div>
 </template>
 
 
@@ -31,7 +34,7 @@
   import axios from 'axios';
 
   export default {
-    layout: 'dark',
+    //layout: 'dark',
     head: {
       title: 'Index 1'
     },
@@ -43,7 +46,7 @@
     },
 
     asyncData ({ params, error }) {
-      return axios.get(`https://itunes.apple.com/search?term=jack&limit=2`)
+      return axios.get(`https://itunes.apple.com/search?term=jack&limit=15`)
       .then((response) => {
         return {
           data: response.data.results

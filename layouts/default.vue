@@ -1,52 +1,54 @@
 <template>
   <div>
-    <nuxt/>
+
+    <nav>
+      <div class="w-100 d-block p-0 my-5 text-center">
+        <h1>Logo</h1>
+      </div>
+      <div class="w-100 d-block pl-5 pr-3">
+        <nuxt-link class="d-block font-weight-bold py-2" to="/places/Ana Tijoux">Ana Tijoux</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/places/Portavoz">Portavoz</nuxt-link>
+      </div>
+    </nav>
+
+    <main>
+      <nuxt/>
+    </main>
+
   </div>
 </template>
 
 <style scoped>
-  html {
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
+  nav {
+    position: fixed;
+    left: 0;
+    background: white;
+    width: 20%;
+    height: 100vh;
   }
-  *, *:before, *:after
-  {
-    box-sizing: border-box;
-    margin: 0;
+
+  main {
+    margin-left: 20%;
   }
-  .button--green
-  {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #3b8070;
-    color: #3b8070;
-    text-decoration: none;
-    padding: 10px 30px;
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 575.98px) {
+    main {
+      margin: 0;
+    }
+    nav {
+      display: none
+    }
   }
-  .button--green:hover
-  {
-    color: #fff;
-    background-color: #3b8070;
-  }
-  .button--grey
-  {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #35495e;
-    color: #35495e;
-    text-decoration: none;
-    padding: 10px 30px;
-    margin-left: 15px;
-  }
-  .button--grey:hover
-  {
-    color: #fff;
-    background-color: #35495e;
-  }
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 767.98px) {}
+
+  /* Large devices (desktops, 992px and up) */
+  @media (max-width: 991.98px) {}
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (max-width: 1199.98px) {}
 </style>
+
+<script></script>

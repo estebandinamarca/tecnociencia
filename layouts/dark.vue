@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-dark">
-    <nav>
+  <div>
+    <nav class="bg-dark">
       <ul>
         <li>Hola 1</li>
         <li>Hola 2</li>
@@ -10,3 +10,9 @@
     <nuxt/>
   </div>
 </template>
+
+<style>
+</style>
+
+<script>
+</script>

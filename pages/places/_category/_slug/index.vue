@@ -1,5 +1,5 @@
-<template id="">
-  <div class="">
+<template>
+  <div>
     <h2><nuxt-link to="/">< Inicio</nuxt-link></h2>
     <h2><nuxt-link to="/places/">< Volver</nuxt-link></h2>
     <hr>

@@ -1,0 +1,100 @@
+// ========================
+// Style Customizations
+// ========================
+$theme-colors: (
+  "primary": #E9E9E9,
+  "secondary": #CCC
+  // "success":    $success,
+  // "info":       $info,
+  // "warning":    $warning,
+  // "danger":     $danger,
+  // "light":      $light,
+  // "dark":       $dark
+);
+
+$font-size-base: 0.9rem;
+
+// ========================
+// Bootstrap Styles
+// ========================
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// ========================
+// Page transitions Styles
+// ========================
+// Page Transition
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .4s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.page-leave,
+.page-enter-to {
+  opacity: 1;
+}
+
+// Layout Transition
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity .5s
+}
+.layout-enter,
+.layout-leave-active {
+  opacity: 0
+}
+
+// ========================
+// General Site Styles
+// ========================
+body {
+  color: $gray-800;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* General Hyperlink */
+a {
+  position: relative;
+  color: $gray-800;
+  transition: all .2s;
+  &:hover {
+    color: $gray-800;
+    text-decoration: none;
+    transform: scale(1.02);
+  }
+}
+
+/* Text Hyperlink */
+a.text-link {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 1px;
+    left: 0;
+    background-color: $gray-800;
+    //visibility: hidden;
+    //-webkit-transform: scaleX(0);
+    //transform: scaleX(0);
+    //-webkit-transition: all 0.3s ease-in-out 0s;
+    //transition: all 0.3s ease-in-out 0s;
+  }
+}
+a.text-link {
+  &:hover{
+    &:before {
+      //visibility: visible;
+      //-webkit-transform: scaleX(1);
+      //transform: scaleX(1);
+    }
+  }
+}
+
+// ========================
+// Menu
+// ========================

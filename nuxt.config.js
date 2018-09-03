@@ -4,7 +4,9 @@ module.exports = {
   mode: 'universal',
   generate: {
     minify: {
-      removeOptionalTags: false
+      removeOptionalTags: false,
+      minifyCSS: true,
+      minifyJS: true
     },
   },
   /*
@@ -14,7 +16,7 @@ module.exports = {
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -22,6 +24,10 @@ module.exports = {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700'
       }
     ]
   },
@@ -30,21 +36,22 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#81d200'
+    color: '#81d200',
+    height: '5px'
   },
+  //loading: false,
 
   /*
   ** Global CSS
   */
   css: [
-    '@/assets/main.css'
+    '@/assets/scss/app.scss' // use our build, as entered via app.scss
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
@@ -53,7 +60,8 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt'
+    //'bootstrap-vue/nuxt'
+    ['bootstrap-vue/nuxt', { css: false }]
   ],
   /*
   ** Axios module configuration

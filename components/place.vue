@@ -1,20 +1,15 @@
 <template>
-  <article class="place">
-    <h1>{{ title }}</h1>
-    <p>{{ previewText }}</p>
-    <nuxt-link :to="'/places/' + slug">Ver más ></nuxt-link>
-    <hr>
+  <article class="col-12 col-sm-6 col-md-4 align-self-stretch">
+    <nuxt-link :to="'/places/' + slug" class="w-100 h-100 p-0 m-0 d-block">
+      <img class="img-fluid rounded m-0" src="https://images.unsplash.com/photo-1494137319847-a9592a0e73ed?ixlib=rb-0.3.5&ixid=&s=&auto=format&fit=crop&w=350&q=100" :alt="title">
+      <h2 class="h5 font-weight-bold my-2">{{ title }}</h2>
+      <p class="m-0 font-weight-light h6">{{ previewText }}</p>
+    </nuxt-link>
   </article>
 </template>
 
-
-<style scoped>
-  .place { background: #CCC; }
-  h1 { color: red; }
-</style>
-
 <script>
   export default {
-    props: ['thumbnail', 'title', 'previewText', 'slug' ]
+    props: [ 'title', 'previewText', 'slug' ]
   }
 </script>
