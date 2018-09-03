@@ -9,7 +9,6 @@ module.exports = {
       minifyJS: true
     },
     fallback: true
-}
   },
   /*
   ** Headers of the page
