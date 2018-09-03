@@ -68,7 +68,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    //baseURL: 'https://api.github.com',
+    baseURL: 'https://nostalgic-kalam-072e62.netlify.com',
     proxyHeaders: false,
     credentials: false
   },
