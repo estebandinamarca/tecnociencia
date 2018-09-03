@@ -24,6 +24,9 @@
   import place from '@/components/place';
   import axios from 'axios';
   export default {
+    head: {
+      title: 'Category Page'
+    },
     components: {
       place
     },
@@ -48,6 +51,8 @@
           message: 'Post not found'
         })
       })
-    }
+    },
+    methods: {},
+    mounted() {}
   }
 </script>
