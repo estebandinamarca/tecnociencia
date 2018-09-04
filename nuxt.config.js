@@ -6,7 +6,8 @@ module.exports = {
     minify: {
       removeOptionalTags: false,
       minifyCSS: true,
-      minifyJS: true
+      minifyJS: true,
+      removeComments: true
     },
     fallback: true
   },
@@ -62,7 +63,9 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    '@/plugins/filters.js'
+  ],
 
   /*
   ** Nuxt.js modules
@@ -79,11 +82,21 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    //baseURL: 'https://itunes.apple.com/'
-    //baseURL: (process.env.NODE_ENV === 'production' ? 'https://nostalgic-kalam-072e62.netlify.com' : 'http://localhost:3000')
+    //baseURL: 'https://itunes.apple.com/',
+    //baseURL: (process.env.NODE_ENV === 'production' ? 'https://nostalgic-kalam-072e62.netlify.com' : 'http://localhost:3000'),
     //proxyHeaders: false,
     //credentials: false
   },
+
+  // env: {
+  //   //baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  //   contentful: {
+  //     apiUrl: 'https://cdn.contentful.com/spaces',
+  //     accessToken: '965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21',
+  //     apiId: 't72z2lh7n4xf'
+  //   }
+  // },
+
 
   /*
   ** Build configuration

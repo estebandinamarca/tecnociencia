@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <section>
-      <h2>{{ title }} : {{ $route.params.category }}</h2>
+      <h2>{{ $route.params.category | replaceCat }}</h2>
     </section>
 
     <section class="row">
@@ -23,17 +23,21 @@
 <script type="text/javascript">
   import place from '@/components/place';
   import axios from 'axios';
+
   export default {
-    head: {
-      title: 'Category Page'
+    data() {
+      return {
+        //title: 'Tecnociencia'
+      }
+    },
+    head() {
+      return {
+        title: 'Tecnociencia en ruta',
+        titleTemplate: `%s | ` + this.$options.filters.replaceCat(this.$route.params.category) //this.data.sys.type
+      }
     },
     components: {
       place
-    },
-    data() {
-      return {
-        title: 'Category'
-      }
     },
     asyncData ({ params, error }) {
       //return axios.get(`https://itunes.apple.com/search?term=${params.category}&limit=10`)
@@ -52,7 +56,19 @@
         })
       })
     },
-    methods: {},
-    mounted() {}
+    methods: {
+      // replaceCatText(text) {
+      //   if(text === 'arqueologia'){
+      //     return 'Arqueología'
+      //   } else {
+      //     return text
+      //   }
+      // }
+    },
+    mounted() {
+      // console.log('data: ' + JSON.stringify(this.data));
+      // this.title = this.data.sys.type;
+      // console.log('this.title: ' + this.title);
+    }
   }
 </script>
