@@ -6,8 +6,11 @@
         <h1>Logo</h1>
       </div>
       <div class="w-100 d-block pl-5 pr-3">
+        <nuxt-link class="d-block font-weight-bold py-2" to="/places/arqueologia">Arqueología</nuxt-link>
         <nuxt-link class="d-block font-weight-bold py-2" to="/places/astronomia">Astronomía</nuxt-link>
         <nuxt-link class="d-block font-weight-bold py-2" to="/places/geologia">Geología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/places/vulcanologia">Vulcanología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/places/paleontologia">Paleontología</nuxt-link>
       </div>
     </nav>
 

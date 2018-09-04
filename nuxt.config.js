@@ -44,6 +44,15 @@ module.exports = {
   //loading: false,
 
   /*
+  ** Loading indicator SPA (nuxt generate)
+  */
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
+
+  /*
   ** Global CSS
   */
   css: [
