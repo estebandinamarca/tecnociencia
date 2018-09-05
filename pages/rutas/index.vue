@@ -34,7 +34,7 @@
   import axios from 'axios';
 
   export default {
-    //layout: 'dark',
+
     head: {
       title: 'Places'
     },
@@ -62,28 +62,10 @@
       })
     },
 
-    // asyncData(context) {
-    //   return axios.get(`https://iitunes.apple.com/search?term=jack&limit=5`)
-    //   .then((response) => {
-    //     return {
-    //       //loading: true,
-    //       data: response.data.results,
-    //       loading: false
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   })
-    //   // .then(() => {
-    //   //   return {
-    //   //     loading: false
-    //   //   }
-    //   // })
-    //},
-
     components: {
       place
     },
+
     methods: {},
     mounted() {}
 

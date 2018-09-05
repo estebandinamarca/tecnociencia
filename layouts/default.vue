@@ -1,38 +1,78 @@
 <template>
   <div>
 
-    <nav>
-      <div class="w-100 d-block p-0 my-5 text-center">
-        <h1>Logo</h1>
-      </div>
-      <div class="w-100 d-block pl-5 pr-3">
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/arqueologia">Arqueología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/astronomia">Astronomía</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/geologia">Geología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/vulcanologia">Vulcanología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/paleontologia">Paleontología</nuxt-link>
-      </div>
+    <!-- Nav Desktop -->
+    <nav class="d-none d-sm-block">
+      <navigation/>
     </nav>
 
+    <!-- Nav Mobile -->
+    <transition name="panel-right">
+      <nav class="" v-if="navMobile">
+        <h1 v-on:click="toggleNav()">cerrar</h1>
+        <navigation/>
+      </nav>
+    </transition>
+
     <main>
-      <nuxt></nuxt>
+      <button type="button" name="button" v-on:click="navMobile = !navMobile">Menu Mobile</button>
+      <p>{{ navMobile }}</p>
+      <div class="overlay" v-if="navMobile" v-on:click="navMobile = false"></div>
+      <nuxt/>
     </main>
 
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
   nav {
     position: fixed;
-    left: 0;
+    z-index: 3;
     background: white;
     width: 20%;
     height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-backface-visibility: hidden;
+    transition: right .3s;
+    -webkit-transition: right .3s;
   }
 
-  a.nuxt-link-active {
-    background: #CCC;
+  .overlay {
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
   }
+
+
+
+  .panel-right-enter-active,
+  .panel-right-leave-active {
+    transition: right .3s;
+    -webkit-transition: right .3s;
+  }
+
+  .panel-right-enter {
+    right: -100%;
+  }
+
+  .panel-right-enter-to,
+  .panel-right-leave {
+    right: 0;
+  }
+
+  .panel-right-leave-to {
+    right: -100%;
+  }
+
 
   main {
     margin-left: 20%;
@@ -45,7 +85,7 @@
       margin: 0;
     }
     nav {
-      display: none
+      width: 80%;
     }
   }
 
@@ -58,3 +98,23 @@
   /* Extra large devices (large desktops, 1200px and up) */
   @media (max-width: 1199.98px) {}
 </style>
+
+<script>
+  import navigation from '@/components/navigation';
+  export default {
+    data(){
+      return {
+        navMobile: false
+      }
+    },
+    components: {
+      navigation
+    },
+    methods: {
+      toggleNav() {
+        console.log('boolean');
+        //this.navMobile = this.navMobile ? false : true;
+      }
+    }
+  }
+</script>
