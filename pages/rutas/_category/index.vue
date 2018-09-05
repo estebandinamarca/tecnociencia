@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
-    <section>
+
+    <section class="row">
       <h2>{{ $route.params.category | replaceCat }}</h2>
     </section>
 
@@ -12,6 +13,7 @@
         :previewText="place.fields.extracto"
         :key="place.sys.id + index"
         :slug="place.fields.nombre"
+        :href="'/rutas/' + place.fields.categoria + '/' + place.fields.slug"
       />
     </section>
   </div>
@@ -40,8 +42,7 @@
       place
     },
     asyncData ({ params, error }) {
-      //return axios.get(`https://itunes.apple.com/search?term=${params.category}&limit=10`)
-      return axios.get(`https://cdn.contentful.com/spaces/t72z2lh7n4xf/entries?access_token=965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21&content_type=place&fields.categoria=${params.category}&limit=10`)
+      return axios.get(`https://cdn.contentful.com/spaces/t72z2lh7n4xf/entries?content_type=place&fields.categoria=${params.category}&access_token=965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21&limit=10`)
       .then((response) => {
         return {
           data: response.data
