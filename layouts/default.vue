@@ -7,24 +7,32 @@
     </nav>
 
     <!-- Nav Mobile -->
-    <transition name="panel-right">
-      <nav class="" v-if="navMobile">
-        <h1 v-on:click="toggleNav()">cerrar</h1>
-        <navigation/>
+    <transition name="panel-left">
+      <nav class="" v-if="navMobile" key="">
+        <div class="w-100 d-block px-0 py-5 text-center">
+          <h1 class="m-0">Logo</h1>
+        </div>
+        <div class="w-100 d-block px-5 m-0 text-left">
+          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/arqueologia" @click.native.prevent="toggleNav()">Arqueología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/astronomia" @click.native.prevent="toggleNav()">Astronomía</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/geologia" @click.native.prevent="toggleNav()">Geología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/vulcanologia" @click.native.prevent="toggleNav()">Vulcanología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/paleontologia" @click.native.prevent="toggleNav()">Paleontología</nuxt-link>
+        </div>
       </nav>
     </transition>
 
     <main>
-      <button type="button" name="button" v-on:click="navMobile = !navMobile">Menu Mobile</button>
+      <a href="" @click.prevent="navMobile = !navMobile">Menu Mobile</a>
       <p>{{ navMobile }}</p>
-      <div class="overlay" v-if="navMobile" v-on:click="navMobile = false"></div>
+      <div class="overlay" v-if="navMobile" @click="navMobile = false"></div>
       <nuxt/>
     </main>
 
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style>
 
   nav {
     position: fixed;
@@ -38,8 +46,10 @@
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
-    transition: right .3s;
-    -webkit-transition: right .3s;
+  }
+
+  nav a.nuxt-link-active {
+    background: #CCC;
   }
 
   .overlay {
@@ -52,27 +62,15 @@
     background: rgba(0, 0, 0, .8);
   }
 
-
-
-  .panel-right-enter-active,
-  .panel-right-leave-active {
-    transition: right .3s;
-    -webkit-transition: right .3s;
+  .panel-left-enter-active,
+  .panel-left-leave-active {
+    transition: left .3s;
   }
 
-  .panel-right-enter {
-    right: -100%;
+  .panel-left-enter,
+  .panel-left-leave-to {
+    left: -100%;
   }
-
-  .panel-right-enter-to,
-  .panel-right-leave {
-    right: 0;
-  }
-
-  .panel-right-leave-to {
-    right: -100%;
-  }
-
 
   main {
     margin-left: 20%;
@@ -85,7 +83,8 @@
       margin: 0;
     }
     nav {
-      width: 80%;
+      /* right: 0; */
+      width: 90%;
     }
   }
 
@@ -113,7 +112,7 @@
     methods: {
       toggleNav() {
         console.log('boolean');
-        //this.navMobile = this.navMobile ? false : true;
+        this.navMobile = this.navMobile ? false : true;
       }
     }
   }
