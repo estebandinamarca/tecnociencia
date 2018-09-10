@@ -3,7 +3,16 @@
 
     <!-- Nav Desktop -->
     <nav class="d-none d-sm-block">
-      <navigation/>
+      <div class="w-100 d-block px-0 py-5 text-center">
+        <h1 class="m-0">Logo</h1>
+      </div>
+      <div class="w-100 d-block px-5 m-0 text-left">
+        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/arqueologia">Arqueología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/astronomia">Astronomía</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/geologia">Geología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/vulcanologia">Vulcanología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/paleontologia">Paleontología</nuxt-link>
+      </div>
     </nav>
 
     <!-- Nav Mobile -->
@@ -23,17 +32,18 @@
     </transition>
 
     <main>
-      <a href="" @click.prevent="navMobile = !navMobile">Menu Mobile</a>
+      <a href="" @click.prevent="toggleNav()">Menu Mobile</a>
       <p>{{ navMobile }}</p>
-      <div class="overlay" v-if="navMobile" @click="navMobile = false"></div>
+      <div class="overlay" v-if="navMobile" @click="toggleNav()"></div>
       <nuxt/>
     </main>
 
   </div>
 </template>
 
-<style>
+<style scoped>
 
+  /* Nav */
   nav {
     position: fixed;
     z-index: 3;
@@ -47,9 +57,16 @@
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
   }
-
   nav a.nuxt-link-active {
     background: #CCC;
+  }
+  .panel-left-enter-active,
+  .panel-left-leave-active {
+    transition: left .3s;
+  }
+  .panel-left-enter,
+  .panel-left-leave-to {
+    left: -100%;
   }
 
   .overlay {
@@ -60,16 +77,6 @@
     top: 0;
     bottom: 0;
     background: rgba(0, 0, 0, .8);
-  }
-
-  .panel-left-enter-active,
-  .panel-left-leave-active {
-    transition: left .3s;
-  }
-
-  .panel-left-enter,
-  .panel-left-leave-to {
-    left: -100%;
   }
 
   main {
@@ -99,16 +106,16 @@
 </style>
 
 <script>
-  import navigation from '@/components/navigation';
+  // import navigation from '@/components/navigation';
   export default {
     data(){
       return {
         navMobile: false
       }
     },
-    components: {
-      navigation
-    },
+    // components: {
+    //   navigation
+    // },
     methods: {
       toggleNav() {
         console.log('boolean');
