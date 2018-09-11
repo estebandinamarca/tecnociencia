@@ -29,7 +29,7 @@
       title: 'Slug'
     },
     asyncData ({ params, error }) {
-      return axios.get(`https://cdn.contentful.com/spaces/t72z2lh7n4xf/entries?fields.slug=${params.slug}&content_type=place&access_token=965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21&limit=1`)
+      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + `/entries?fields.slug=${params.slug}&content_type=place&access_token=` + process.env.contentful.accessToken +`&limit=1`)
       .then((response) => {
         return {
           data: response.data

@@ -86,13 +86,8 @@
 
   /* Small devices (landscape phones, 576px and up) */
   @media (max-width: 575.98px) {
-    main {
-      margin: 0;
-    }
-    nav {
-      /* right: 0; */
-      width: 90%;
-    }
+    main { margin: 0; }
+    nav { width: 90%; }
   }
 
   /* Medium devices (tablets, 768px and up) */
@@ -106,7 +101,7 @@
 </style>
 
 <script>
-  // import navigation from '@/components/navigation';
+  //import navigation from '@/components/navigation';
   export default {
     data(){
       return {
@@ -121,6 +116,9 @@
         console.log('boolean');
         this.navMobile = this.navMobile ? false : true;
       }
+    },
+    mounted() {
+      console.log(process.env.hello);
     }
   }
 </script>

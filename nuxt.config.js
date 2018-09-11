@@ -64,7 +64,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/filters.js'
+    '@/plugins/filters.js'//,
+    //'@/plugins/main.js'
   ],
 
   /*
@@ -88,14 +89,15 @@ module.exports = {
     //credentials: false
   },
 
-  // env: {
-  //   //baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-  //   contentful: {
-  //     apiUrl: 'https://cdn.contentful.com/spaces',
-  //     accessToken: '965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21',
-  //     apiId: 't72z2lh7n4xf'
-  //   }
-  // },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    hello: false,
+    contentful: {
+      apiUrl: 'https://cdn.contentful.com/spaces/',
+      accessToken: '965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21',
+      apiId: 't72z2lh7n4xf'
+    }
+  },
 
 
   /*

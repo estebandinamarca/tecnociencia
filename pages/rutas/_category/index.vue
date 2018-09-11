@@ -42,7 +42,7 @@
       place
     },
     asyncData ({ params, error }) {
-      return axios.get(`https://cdn.contentful.com/spaces/t72z2lh7n4xf/entries?content_type=place&fields.categoria=${params.category}&access_token=965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21&limit=10`)
+      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId +`/entries?content_type=place&fields.categoria=${params.category}&access_token=`+ process.env.contentful.accessToken +`&limit=10`)
       .then((response) => {
         return {
           data: response.data
@@ -53,23 +53,13 @@
         console.log(e);
         error({
           statusCode: 404,
-          message: 'Post not found'
+          message: 'Posts no encontrados.'
         })
       })
     },
-    methods: {
-      // replaceCatText(text) {
-      //   if(text === 'arqueologia'){
-      //     return 'Arqueología'
-      //   } else {
-      //     return text
-      //   }
-      // }
-    },
+    methods: {},
     mounted() {
-      // console.log('data: ' + JSON.stringify(this.data));
-      // this.title = this.data.sys.type;
-      // console.log('this.title: ' + this.title);
+      //console.log(process.env.contentful.accessToken);
     }
   }
 </script>
