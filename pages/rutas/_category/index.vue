@@ -59,7 +59,7 @@
     },
     methods: {},
     mounted() {
-      //console.log(process.env.contentful.accessToken);
+      console.log(process.env.contentful.accessToken);
     }
   }
 </script>

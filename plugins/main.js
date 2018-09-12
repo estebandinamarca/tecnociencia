@@ -1,9 +1,20 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
-export default {
-  data(){
+Vue.mixin({
+  data() {
     return {
-      test: 'test!'
+      navMobile: false
     }
+  },
+  methods: {
+    toggleNav() {
+      console.log('------- toggleNav() ------------');
+      this.navMobile = !this.navMobile;
+      console.log(this.navMobile);
+    }
+  },
+  mounted() {
+    console.log('---------- MIXIN -------------');
+    console.log(this.navMobile);
   }
-}
+})

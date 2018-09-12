@@ -68,6 +68,7 @@ module.exports = {
   */
   plugins: [
     '@/plugins/filters.js'
+    //'@/plugins/main.js',
   ],
 
   /*
