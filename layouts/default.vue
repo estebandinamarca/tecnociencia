@@ -113,11 +113,11 @@
     },
     methods: {
       toggleNav() {
-        this.navMobile = this.navMobile ? false : true;
+        this.navMobile = !this.navMobile //? false : true;
       }
     },
     mounted() {
-      console.log(process.env.contentful);
+      //console.log(process.env.contentful);
     }
   }
 </script>

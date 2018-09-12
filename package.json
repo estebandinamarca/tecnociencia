@@ -17,6 +17,7 @@
     "jquery": "^3.3.1",
     "nuxt": "^1.0.0",
     "nuxt-fontawesome": "^0.3.0",
+    "photoswipe": "^4.1.2",
     "popper.js": "^1.14.4"
   },
   "devDependencies": {
