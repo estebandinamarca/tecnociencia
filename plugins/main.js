@@ -1,6 +1,9 @@
 import Vue from 'vue';
 
 export default {
-  data(){},
-  methods: {}
+  data(){
+    return {
+      test: 'test!'
+    }
+  }
 }

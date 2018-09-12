@@ -29,8 +29,11 @@ module.exports = {
       },
       {
         rel: 'stylesheet',
-        //href: 'https://fonts.googleapis.com/css?family=Nunito:300,400,600,700'
         href: 'https://fonts.googleapis.com/css?family=Work+Sans:400,500,700'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.3.1/css/all.css'
       }
     ]
   },
@@ -64,8 +67,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/filters.js'//,
-    //'@/plugins/main.js'
+    '@/plugins/filters.js'
   ],
 
   /*
@@ -91,7 +93,6 @@ module.exports = {
 
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    hello: false,
     contentful: {
       apiUrl: 'https://cdn.contentful.com/spaces/',
       accessToken: '965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21',

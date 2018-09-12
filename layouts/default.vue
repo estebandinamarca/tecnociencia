@@ -6,12 +6,12 @@
       <div class="w-100 d-block px-0 py-5 text-center">
         <h1 class="m-0">Logo</h1>
       </div>
-      <div class="w-100 d-block px-5 m-0 text-left">
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/arqueologia">Arqueología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/astronomia">Astronomía</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/geologia">Geología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/vulcanologia">Vulcanología</nuxt-link>
-        <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/paleontologia">Paleontología</nuxt-link>
+      <div class="w-100 d-block pl-0 pr-3 m-0 text-left">
+        <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/arqueologia">Arqueología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/astronomia">Astronomía</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/geologia">Geología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/vulcanologia">Vulcanología</nuxt-link>
+        <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/paleontologia">Paleontología</nuxt-link>
       </div>
     </nav>
 
@@ -21,20 +21,36 @@
         <div class="w-100 d-block px-0 py-5 text-center">
           <h1 class="m-0">Logo</h1>
         </div>
-        <div class="w-100 d-block px-5 m-0 text-left">
-          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/arqueologia" @click.native.prevent="toggleNav()">Arqueología</nuxt-link>
-          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/astronomia" @click.native.prevent="toggleNav()">Astronomía</nuxt-link>
-          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/geologia" @click.native.prevent="toggleNav()">Geología</nuxt-link>
-          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/vulcanologia" @click.native.prevent="toggleNav()">Vulcanología</nuxt-link>
-          <nuxt-link class="d-block font-weight-bold py-2" to="/rutas/paleontologia" @click.native.prevent="toggleNav()">Paleontología</nuxt-link>
+        <div class="w-100 d-block pl-0 pr-3 m-0 text-left">
+          <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/arqueologia" @click.native.prevent="toggleNav()">Arqueología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/astronomia" @click.native.prevent="toggleNav()">Astronomía</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/geologia" @click.native.prevent="toggleNav()">Geología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/vulcanologia" @click.native.prevent="toggleNav()">Vulcanología</nuxt-link>
+          <nuxt-link class="d-block font-weight-bold py-3 pl-5" to="/rutas/paleontologia" @click.native.prevent="toggleNav()">Paleontología</nuxt-link>
         </div>
       </nav>
     </transition>
 
     <main>
-      <a href="" @click.prevent="toggleNav()">Menu Mobile</a>
-      <p>{{ navMobile }}</p>
+
+      <header class="fixed-top bg-white">
+        <div class="container-fluid px-0">
+          <div class="row no-gutters align-items-center">
+            <div class="col-3">
+              <a class="h4 d-block py-3 m-0 text-center" href="" @click.prevent="toggleNav()"><i class="fas fa-bars"></i></a>
+            </div>
+            <div class="col-6">
+              <p class="text-center p-0 m-0">Tecnociencia</p>
+            </div>
+            <div class="col-3">
+              <a class="h4 d-block py-3 m-0 text-center" href="" @click.prevent="toggleNav()"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div class="overlay" v-if="navMobile" @click="toggleNav()"></div>
+
       <nuxt/>
     </main>
 
@@ -46,7 +62,7 @@
   /* Nav */
   nav {
     position: fixed;
-    z-index: 3;
+    z-index: 1032;
     background: white;
     width: 20%;
     height: 100vh;
@@ -57,9 +73,16 @@
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
   }
-  nav a.nuxt-link-active {
-    background: #CCC;
+
+  nav a {
+    border-left: 5px solid #FFF;
   }
+
+  nav a.nuxt-link-active {
+    /* background: #CCC; */
+    border-color: red;
+  }
+
   .panel-left-enter-active,
   .panel-left-leave-active {
     transition: left .3s;
@@ -70,7 +93,7 @@
   }
 
   .overlay {
-    z-index: 2;
+    z-index: 1031;
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -81,6 +104,7 @@
 
   main {
     margin-left: 20%;
+    padding-top: 57px;
   }
 
 
@@ -118,7 +142,7 @@
       }
     },
     mounted() {
-      console.log(process.env.hello);
+      console.log(process.env.contentful);
     }
   }
 </script>
