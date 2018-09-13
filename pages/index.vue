@@ -7,17 +7,15 @@
       </div>
     </section>
 
-    <section class="row my-gallery">
-      <carousel :per-page="1" class="col-12">
-        <slide v-for="(item, index) in data.items">
-          <div class="py-5 w-100 bg-primary">
-            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-              <a class="d-block" href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" :alt="item.fields.extracto" />
-              </a>
-              <figcaption itemprop="caption description">{{ item.fields.nombre }}</figcaption>
-            </figure>
-          </div>
+    <section class="row">
+      <carousel :per-page="1" class="col-12 my-gallery">
+        <slide v-for="(item, index) in data.items" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" :key="item.sys.id">
+          <figure class="py-5 w-100 bg-primary">
+            <a class="d-block" v-for="(img, index) in data.includes.Asset" v-if="item.fields.imgmain && item.fields.imgmain.sys.id === img.sys.id" :href="img.fields.file.url" itemprop="contentUrl" data-size="300x200">
+              <img style="width: 300px; height: 200px;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
+            </a>
+            <figcaption itemprop="caption description">Items:  {{ item.fields.nombre }} {{ item.sys.id }}</figcaption>
+          </figure>
         </slide>
       </carousel>
     </section>
@@ -105,8 +103,8 @@
         error({
           statusCode: 404,
           message: 'Posts no encontrados.'
-        })
-      })
+        });
+      });
     },
     methods: {
       photoswipeInit() {
@@ -302,6 +300,8 @@
           var galleryElements = document.querySelectorAll(gallerySelector);
 
           for (var i = 0, l = galleryElements.length; i < l; i++) {
+            //console.dir(galleryElements);
+            //console.log(galleryElements[i].childNodes);
             galleryElements[i].setAttribute('data-pswp-uid', i + 1);
             galleryElements[i].onclick = onThumbnailsClick;
           }
@@ -313,11 +313,31 @@
           // }
         };
         // execute above function
-        initPhotoSwipeFromDOM('.my-gallery');
+        //initPhotoSwipeFromDOM('.my-gallery');
+        initPhotoSwipeFromDOM('.VueCarousel-inner');
+      },
+      pushPhoto(){
+        var content = this.data;
+        content.items.forEach(function(key) {
+          console.log(key.fields.nombre);
+          console.log('------------------------');
+          if(key.fields.imgmain){
+            content.includes.Asset.forEach(function(imgid) {
+              if(key.fields.imgmain.sys.id == imgid.sys.id){
+                console.log('Imagen!');
+              }
+            });
+          }
+        });
+
+        //console.log(JSON.stringify(content));
       }
     },
     mounted() {
+      console.log('--- mounted() ----');
+      //this.pushPhoto();
       this.photoswipeInit();
+      //console.log(JSON.stringify(this.data));
     }
   }
 </script>

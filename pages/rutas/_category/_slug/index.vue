@@ -4,13 +4,13 @@
     <section class="row my-gallery">
 
       <carousel :per-page="1" class="col-12">
-        <slide v-for="(item, index) in data.items">
+        <slide v-for="(item, index) in data.items" :key="item.sys.id">
           <div class="py-5 w-100 bg-primary">
             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
               <a class="d-block" href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
                 <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" :alt="item.fields.extracto" />
               </a>
-              <figcaption itemprop="caption description">{{ item.fields.nombre }}</figcaption>
+              <figcaption itemprop="caption description">{{ item.fields.nombre }} {{ item.sys.id }}</figcaption>
             </figure>
           </div>
         </slide>
