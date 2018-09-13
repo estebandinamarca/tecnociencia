@@ -1,17 +1,27 @@
 <template>
   <div class="container-fluid">
 
-    <section>
+    <section class="row my-gallery">
 
-      <carousel perPage="1">
+      <carousel :perPage="1" class="col-12">
         <slide>
           <div class="py-5 w-100 bg-primary">
-            <h1>Slide 2 Content</h1>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a class="d-block" href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
+                <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">Image caption 1</figcaption>
+            </figure>
           </div>
         </slide>
         <slide>
           <div class="py-5 w-100 bg-primary">
-            <h1>Slide 2 Content</h1>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a class="d-block" href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg" itemprop="contentUrl" data-size="964x1024">
+                <img src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">Image caption 2</figcaption>
+            </figure>
           </div>
         </slide>
       </carousel>
@@ -23,31 +33,31 @@
       <div class="col-12">
 
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="d-block" href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
-            <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" alt="Image description" />
-          </a>
-          <figcaption itemprop="caption description">Image caption 1</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="d-block" href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg" itemprop="contentUrl" data-size="964x1024">
-            <img src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg" itemprop="thumbnail" alt="Image description" />
-          </a>
-          <figcaption itemprop="caption description">Image caption 2</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="d-block" href="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg" itemprop="contentUrl" data-size="1024x683">
-            <img src="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_m.jpg" itemprop="thumbnail" alt="Image description" />
-          </a>
-          <figcaption itemprop="caption description">Image caption 3</figcaption>
-        </figure>
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-          <a class="d-block" href="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_b.jpg" itemprop="contentUrl" data-size="1024x768">
-            <img src="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_m.jpg" itemprop="thumbnail" alt="Image description" />
-          </a>
-          <figcaption itemprop="caption description">Image caption 4</figcaption>
-        </figure>
-      </div>
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a class="d-block" href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
+              <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption 1</figcaption>
+          </figure>
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a class="d-block" href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg" itemprop="contentUrl" data-size="964x1024">
+              <img src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption 2</figcaption>
+          </figure>
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a class="d-block" href="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg" itemprop="contentUrl" data-size="1024x683">
+              <img src="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_m.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption 3</figcaption>
+          </figure>
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a class="d-block" href="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_b.jpg" itemprop="contentUrl" data-size="1024x768">
+              <img src="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_m.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption 4</figcaption>
+          </figure>
+        </div>
         <!-- Root element of PhotoSwipe. Must have class pswp. -->
         <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -133,7 +143,7 @@
 
 <script type="text/javascript">
   import axios from 'axios';
-  import { Carousel, Slide } from 'vue-carousel';
+  //import { Carousel, Slide } from 'vue-carousel';
 
   export default {
     //layout: 'dark',
@@ -142,10 +152,10 @@
         title: 'Slug'
       }
     },
-    components: {
-      Carousel,
-      Slide
-    },
+    // components: {
+    //   Carousel,
+    //   Slide
+    // },
     asyncData({ params, error }) {
       return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + `/entries?fields.slug=${params.slug}&content_type=place&access_token=` + process.env.contentful.accessToken + `&limit=1`)
         .then((response) => {
