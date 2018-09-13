@@ -16,6 +16,7 @@
         :href="'/rutas/' + place.fields.categoria + '/' + place.fields.slug"
       />
     </section>
+    
   </div>
 </template>
 
