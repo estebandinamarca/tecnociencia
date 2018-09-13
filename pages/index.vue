@@ -9,8 +9,8 @@
 
     <section class="row">
       <carousel :per-page="1" class="col-12 my-gallery">
-        <slide v-for="(item, index) in data.items" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" :key="item.sys.id">
-          <figure class="py-5 w-100 bg-primary">
+        <slide v-for="(item, index) in data.items" :key="item.sys.id">
+          <figure class="py-5 w-100 bg-primary" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a class="d-block" v-for="(img, index) in data.includes.Asset" v-if="item.fields.imgmain && item.fields.imgmain.sys.id === img.sys.id" :href="img.fields.file.url" itemprop="contentUrl" data-size="300x200">
               <img style="width: 300px; height: 200px;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
             </a>
@@ -113,7 +113,8 @@
           // parse slide data (url, title, size ...) from DOM elements
           // (children of gallerySelector)
           var parseThumbnailElements = function(el) {
-            var thumbElements = el.childNodes,
+            //var thumbElements = el.childNodes,
+            var thumbElements = el.querySelectorAll('.VueCarousel-slide figure'),
               numNodes = thumbElements.length,
               items = [],
               figureEl,
