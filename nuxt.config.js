@@ -34,7 +34,15 @@ module.exports = {
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.3.1/css/all.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: '/photoswipe/photoswipe.css'
       }
+    ],
+    script: [
+      { src: '/photoswipe/photoswipe.min.js' },
+      { src: '/photoswipe/photoswipe-ui-default.min.js' }
     ]
   },
 
