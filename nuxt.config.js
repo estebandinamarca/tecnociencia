@@ -37,7 +37,13 @@ module.exports = {
       },
       {
         rel: 'stylesheet',
-        href: '/photoswipe/photoswipe.css'
+        //href: '/photoswipe/photoswipe.css'
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        //href: '/photoswipe/photoswipe.css'
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css'
       }
     ],
     script: [
