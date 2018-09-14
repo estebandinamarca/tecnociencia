@@ -10,8 +10,8 @@
     <section class="row">
       <carousel :per-page="1" class="col-12 my-gallery">
         <slide v-for="(item, index) in data.items" :key="item.sys.id">
-          <figure class="py-5 w-100 bg-primary" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a class="d-block" v-for="(img, index) in data.includes.Asset" v-if="item.fields.imgmain && item.fields.imgmain.sys.id === img.sys.id" :href="img.fields.file.url" itemprop="contentUrl" data-size="300x200">
+          <figure class="find-them-all py-5 w-100 bg-primary" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
+            <a class="d-block" v-for="(img, index) in data.includes.Asset" v-if="item.fields.imgmain.sys.id === img.sys.id" :href="img.fields.file.url" itemprop="contentUrl" :data-size="img.fields.file.details.image.width + 'x' + img.fields.file.details.image.height">
               <img style="width: 300px; height: 200px;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
             </a>
             <figcaption itemprop="caption description">Items:  {{ item.fields.nombre }} {{ item.sys.id }}</figcaption>
@@ -114,13 +114,18 @@
           // (children of gallerySelector)
           var parseThumbnailElements = function(el) {
             //var thumbElements = el.childNodes,
-            var thumbElements = el.querySelectorAll('.VueCarousel-slide figure'),
+
+            //var thumbElements = el.querySelectorAll('.VueCarousel-slide figure'),
+            var thumbElements = Array.prototype.slice.call(document.querySelectorAll('.find-them-all')),
+            //var thumbElements = el.querySelectorAll('.find-them-all'),
               numNodes = thumbElements.length,
               items = [],
               figureEl,
               linkEl,
               size,
               item;
+
+              console.log(thumbElements);
 
             for (var i = 0; i < numNodes; i++) {
 
@@ -133,6 +138,8 @@
 
               linkEl = figureEl.children[0]; // <a> element
 
+              console.log(figureEl);
+
               size = linkEl.getAttribute('data-size').split('x');
 
               // create slide object
@@ -141,6 +148,7 @@
                 w: parseInt(size[0], 10),
                 h: parseInt(size[1], 10)
               };
+
 
               if (figureEl.children.length > 1) {
                 // <figcaption> content
@@ -182,11 +190,16 @@
 
             // find index of clicked item by looping through all child nodes
             // alternatively, you may define index via data- attribute
-            var clickedGallery = clickedListItem.parentNode,
-              childNodes = clickedListItem.parentNode.childNodes,
+
+            //var clickedGallery = clickedListItem.parentNode,
+            //  childNodes = clickedListItem.parentNode.childNodes,
+            var clickedGallery = document.querySelectorAll('.VueCarousel-inner')[0],
+              childNodes = Array.prototype.slice.call(document.querySelectorAll('.find-them-all')),
               numChildNodes = childNodes.length,
               nodeIndex = 0,
               index;
+
+              console.log(clickedGallery);
 
             for (var i = 0; i < numChildNodes; i++) {
               if (childNodes[i].nodeType !== 1) {
@@ -301,8 +314,6 @@
           var galleryElements = document.querySelectorAll(gallerySelector);
 
           for (var i = 0, l = galleryElements.length; i < l; i++) {
-            //console.dir(galleryElements);
-            //console.log(galleryElements[i].childNodes);
             galleryElements[i].setAttribute('data-pswp-uid', i + 1);
             galleryElements[i].onclick = onThumbnailsClick;
           }
