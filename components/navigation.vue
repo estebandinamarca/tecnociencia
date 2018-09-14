@@ -10,6 +10,7 @@
       <nuxt-link class="d-block font-weight-bold py-3 pl-5 scale" to="/rutas/geologia" @click.native.prevent="$emit('navclick', false);">Geología</nuxt-link>
       <nuxt-link class="d-block font-weight-bold py-3 pl-5 scale" to="/rutas/vulcanologia" @click.native.prevent="$emit('navclick', false);">Vulcanología</nuxt-link>
       <nuxt-link class="d-block font-weight-bold py-3 pl-5 scale" to="/rutas/paleontologia" @click.native.prevent="$emit('navclick', false);">Paleontología</nuxt-link>
+      <nuxt-link class="d-block font-weight-bold py-3 pl-5 scale" to="/rutas/ecologia" @click.native.prevent="$emit('navclick', false);">Ecología</nuxt-link>
     </div>
   </div>
 </template>

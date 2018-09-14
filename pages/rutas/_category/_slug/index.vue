@@ -38,7 +38,6 @@
 
     </section>
 
-
     <section class="row">
       <div class="col-12">
 
@@ -129,7 +128,6 @@
 
       </div>
     </section>
-
 
     <section class="row">
       <div class="col-12">

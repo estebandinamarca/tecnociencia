@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+    
     <section class="row">
       <div class="col-12">
         <h1>Inicio</h1>
@@ -91,7 +92,7 @@
 
   export default {
     asyncData ({ params, error }) {
-      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId +`/entries?content_type=place&fields.categoria=arqueologia&access_token=`+ process.env.contentful.accessToken +`&limit=10`)
+      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId +`/entries?content_type=place&fields.categoria=arqueologia&access_token=`+ process.env.contentful.accessToken +`&limit=10&order=-sys.updatedAt`)
       .then((response) => {
         return {
           data: response.data
