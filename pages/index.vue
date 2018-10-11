@@ -1,25 +1,68 @@
 <template>
-  <div class="container-fluid">
-    
-    <section class="row">
+  <div class="w-100">
+
+    <!-- <section class="row">
       <div class="col-12">
         <h1>Inicio</h1>
         <h2><nuxt-link to="/rutas">Rutas</nuxt-link></h2>
       </div>
-    </section>
+    </section> -->
 
-    <section class="row">
-      <carousel :per-page="1" class="col-12 my-gallery">
+    <section class="row no-gutters">
+      <carousel :per-page="1" :pagination-size="15" class="col-12 home-pagination">
         <slide v-for="(item, index) in data.items" :key="item.sys.id">
-          <figure class="find-them-all py-5 w-100 bg-primary" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
-            <a class="d-block" v-for="(img, index) in data.includes.Asset" v-if="item.fields.imgmain.sys.id === img.sys.id" :href="img.fields.file.url" itemprop="contentUrl" :data-size="img.fields.file.details.image.width + 'x' + img.fields.file.details.image.height">
-              <img style="width: 300px; height: 200px;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
+          <figure class="find-them-all p-0 m-0 w-100 bg-primary position-relative" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
+            <!-- :style="'background: url('+ img.fields.file.url +') no-repeat center center; background-size: cover;'" -->
+            <a
+              class="d-block h-100 w-100 position-relative"
+              v-for="(img, index) in data.includes.Asset"
+              v-if="item.fields.imgmain.sys.id === img.sys.id"
+              :href="img.fields.file.url"
+              itemprop="contentUrl"
+              :data-size="img.fields.file.details.image.width + 'x' + img.fields.file.details.image.height">
+              <img class="w-100 h-100" style="object-fit:cover;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
             </a>
-            <figcaption itemprop="caption description">Items:  {{ item.fields.nombre }} {{ item.sys.id }}</figcaption>
+            <figcaption itemprop="caption" class="py-5 px-5 text-white">
+              <h2 class="m-0 p-0 font-weight-bold">{{ item.fields.nombre }}</h2>
+              <small>{{ item.sys.id }}</small>
+            </figcaption>
           </figure>
         </slide>
       </carousel>
     </section>
+
+    <section class="row no-gutters py-5">
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+      <h3 class="w-100">Más contenidos</h3>
+    </section>
+
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -80,11 +123,30 @@
 
     </div>
 
-
   </div>
 </template>
 
+
 <style>
+  .find-them-all { height: 100vh; }
+
+  .VueCarousel-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .VueCarousel-dot-button:focus {
+    outline: 0!important;
+  }
+
+  figcaption {
+    position: absolute;
+    width: 100%;
+    bottom: 100px;
+  }
+
 </style>
 
 <script>
@@ -328,23 +390,23 @@
         // execute above function
         //initPhotoSwipeFromDOM('.my-gallery');
         initPhotoSwipeFromDOM('.VueCarousel-inner');
-      },
-      pushPhoto(){
-        var content = this.data;
-        content.items.forEach(function(key) {
-          console.log(key.fields.nombre);
-          console.log('------------------------');
-          if(key.fields.imgmain){
-            content.includes.Asset.forEach(function(imgid) {
-              if(key.fields.imgmain.sys.id == imgid.sys.id){
-                console.log('Imagen!');
-              }
-            });
-          }
-        });
+      }
+      // pushPhoto(){
+      //   var content = this.data;
+      //   content.items.forEach(function(key) {
+      //     console.log(key.fields.nombre);
+      //     console.log('------------------------');
+      //     if(key.fields.imgmain){
+      //       content.includes.Asset.forEach(function(imgid) {
+      //         if(key.fields.imgmain.sys.id == imgid.sys.id){
+      //           console.log('Imagen!');
+      //         }
+      //       });
+      //     }
+      //   });
 
         //console.log(JSON.stringify(content));
-      }
+      //}
     },
     mounted() {
       console.log('--- mounted() ----');
