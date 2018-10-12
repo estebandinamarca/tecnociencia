@@ -80,12 +80,15 @@
   }
   main {
     margin-left: 20%;
-    padding-top: 57px;
+    // padding-top: 57px;
   }
 
   /* Small devices (landscape phones, 576px and up) */
   @media (max-width: 575.98px) {
-    main { margin: 0; }
+    main {
+      margin: 0;
+      padding-top: 57px
+    }
     nav { width: 85%; }
   }
 

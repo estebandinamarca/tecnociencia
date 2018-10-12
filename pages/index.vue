@@ -9,7 +9,7 @@
     </section> -->
 
     <section class="row no-gutters">
-      <carousel :per-page="1" :pagination-size="15" class="col-12 home-pagination">
+      <carousel :per-page="1" :pagination-size="15" :navigationEnabled="true" class="col-12 home-pagination">
         <slide v-for="(item, index) in data.items" :key="item.sys.id">
           <figure class="find-them-all p-0 m-0 w-100 bg-primary position-relative" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
             <!-- :style="'background: url('+ img.fields.file.url +') no-repeat center center; background-size: cover;'" -->
@@ -137,9 +137,10 @@
     right: 0;
   }
 
-  .VueCarousel-dot-button:focus {
-    outline: 0!important;
-  }
+  .VueCarousel-dot-button:focus { outline: 0!important; }
+  .VueCarousel-navigation-button { color: white!important; }
+  .VueCarousel-navigation-prev { left: 37px!important; }
+  .VueCarousel-navigation-next { right: 37px!important; }
 
   figcaption {
     position: absolute;
