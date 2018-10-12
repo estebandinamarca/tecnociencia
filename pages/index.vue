@@ -10,12 +10,14 @@
 
     <section class="row no-gutters">
       <carousel
-      :perPage="1"
-      :paginationSize="15"
-      :navigationEnabled="true"
-      :navigationPrevLabel='`<i class="fas fa-arrow-left"></i>`'
-      :navigationNextLabel='`<i class="fas fa-arrow-right"></i>`'
-      class="col-12 home-pagination">
+        :perPage="1"
+        :paginationSize="12"
+        :paginationColor="`rgba(255,255,255,.3)`"
+        :paginationActiveColor="`rgba(255,255,255,1)`"
+        :navigationEnabled="true"
+        :navigationPrevLabel='`<i class="fas fa-arrow-left"></i>`'
+        :navigationNextLabel='`<i class="fas fa-arrow-right"></i>`'
+        class="col-12 home-pagination">
         <slide v-for="(item, index) in data.items" :key="item.sys.id">
           <figure class="find-them-all p-0 m-0 w-100 bg-primary position-relative" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
             <!-- :style="'background: url('+ img.fields.file.url +') no-repeat center center; background-size: cover;'" -->
@@ -144,14 +146,30 @@
   }
 
   .VueCarousel-dot-button:focus { outline: 0!important; }
+
   .VueCarousel-navigation-button { color: white!important; }
   .VueCarousel-navigation-prev { left: 37px!important; }
   .VueCarousel-navigation-next { right: 37px!important; }
 
   figcaption {
     position: absolute;
+    z-index: 1;
     width: 100%;
     bottom: 100px;
+  }
+
+  figure:after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 );
   }
 
 </style>

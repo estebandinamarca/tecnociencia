@@ -78,6 +78,7 @@
     bottom: 0;
     background: rgba(0, 0, 0, .8);
   }
+
   main {
     margin-left: 20%;
     // padding-top: 57px;

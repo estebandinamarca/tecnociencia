@@ -16,11 +16,11 @@
         :href="'/rutas/' + place.fields.categoria + '/' + place.fields.slug"
       />
     </section>
-    
+
   </div>
 </template>
 
-<style scoped>
+<style>
 </style>
 
 <script type="text/javascript">
