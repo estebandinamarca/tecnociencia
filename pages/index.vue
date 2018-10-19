@@ -8,69 +8,102 @@
       </div>
     </section> -->
 
-    <section class="row no-gutters">
-      <carousel
-        :perPage="1"
-        :paginationSize="12"
-        :paginationColor="`rgba(255,255,255,.3)`"
-        :paginationActiveColor="`rgba(255,255,255,1)`"
-        :navigationEnabled="true"
-        :navigationPrevLabel='`<i class="fas fa-arrow-left"></i>`'
-        :navigationNextLabel='`<i class="fas fa-arrow-right"></i>`'
-        class="col-12 home-pagination">
-        <slide v-for="(item, index) in data.items" :key="item.sys.id">
-          <figure class="find-them-all p-0 m-0 w-100 bg-primary position-relative" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" v-if="item.fields.imgmain">
-            <!-- :style="'background: url('+ img.fields.file.url +') no-repeat center center; background-size: cover;'" -->
-            <a
-              class="d-block h-100 w-100 position-relative"
-              v-for="(img, index) in data.includes.Asset"
-              v-if="item.fields.imgmain.sys.id === img.sys.id"
-              :href="img.fields.file.url"
-              itemprop="contentUrl"
-              :data-size="img.fields.file.details.image.width + 'x' + img.fields.file.details.image.height">
-              <img class="w-100 h-100" style="object-fit:cover;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
-            </a>
-            <figcaption itemprop="caption" class="py-5 px-5 text-white">
-              <h2 class="m-0 p-0 font-weight-bold">{{ item.fields.nombre }}</h2>
-              <small>{{ item.sys.id }}</small>
-            </figcaption>
-          </figure>
-        </slide>
-      </carousel>
-    </section>
+    <div class="w-100">
+      <section class="row no-gutters">
+        <carousel
+          :perPage="1"
+          :paginationSize="12"
+          :paginationColor="`rgba(255,255,255,.3)`"
+          :paginationActiveColor="`rgba(255,255,255,1)`"
+          :navigationEnabled="true"
+          :navigationPrevLabel='`<i class="fas fa-arrow-left"></i>`'
+          :navigationNextLabel='`<i class="fas fa-arrow-right"></i>`'
+          class="col-12 home-pagination">
+          <slide v-for="(item, index) in data.items" :key="item.sys.id">
+            <figure
+              class="find-them-all p-0 m-0 w-100 bg-primary position-relative"
+              itemprop="associatedMedia"
+              itemscope
+              itemtype="http://schema.org/ImageObject"
+              v-if="item.fields.imgmain">
+              <!-- :style="'background: url('+ img.fields.file.url +') no-repeat center center; background-size: cover;'" -->
+              <a
+                class="d-block h-100 w-100 position-relative"
+                v-for="(img, index) in data.includes.Asset"
+                v-if="item.fields.imgmain.sys.id === img.sys.id"
+                :href="img.fields.file.url"
+                itemprop="contentUrl"
+                :data-size="img.fields.file.details.image.width + 'x' + img.fields.file.details.image.height">
+                <img class="w-100 h-100" style="object-fit:cover;" :src="img.fields.file.url" itemprop="thumbnail" :alt="img.fields.title" />
+              </a>
+              <figcaption itemprop="caption" class="py-4 py-md-5 px-2 px-md-5 text-white">
+                <p class="m-0 pl-md-4"><i class="dripicons-location"></i> Arica</p>
+                <h1 class="display-4 my-2 pl-0 pl-md-4 font-weight-bold"> <i class="dripicons-location"></i> {{ item.fields.nombre }}</h1>
+                <p class="h6 h5-md m-0 pl-0 pl-md-4 font-weight-light">{{ item.sys.id }}</p>
+              </figcaption>
+            </figure>
+          </slide>
+        </carousel>
+      </section>
+    </div>
 
-    <section class="row no-gutters py-5">
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-      <h3 class="w-100">Más contenidos</h3>
-    </section>
+    <div class="container-fluid py-5 home-grid">
+      <section class="row no-gutters py-5">
 
+        <div class="col-12" v-for="(item, index) in data.items" :key="item.sys.id">
+          <div class="row py-5 align-items-center">
+            <div class="col-12 col-md-5">
+              <!-- <p class="h5 m-0 pb-2 text-uppercase font-weight-light"><i class="text-primary fas fa-map-marker-alt"></i> Arica</p> -->
+              <h2 class="display-4 d-inline font-weight-bold m-0 p-0">{{ item.fields.nombre }}</h2>
+              <p class="h5 m-0 pt-5">{{ item.fields.extracto }}</p>
+              <a :href="'/rutas/' + item.fields.categoria + '/' + item.fields.slug" class="btn btn-outline-primary">Ver detalles</a>
+            </div>
+            <div class="col-12 col-md-7">
+              <div class="w-100 position-relative img-container" v-if="item.fields.imgmain">
+                <img
+                  v-for="(img, index) in data.includes.Asset"
+                  v-if="item.fields.imgmain.sys.id === img.sys.id"
+                  class="img-fluid"
+                  :src="img.fields.file.url"
+                  alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- <div class="col-12">
+          <div class="row py-5 align-items-center">
+            <div class="col-12 col-md-5">
+              <p class="h5 m-0 pb-2 text-uppercase font-weight-light"><i class="text-primary fas fa-map-marker-alt"></i> Arica</p>
+              <h2 class="display-4 d-inline font-weight-bold m-0 p-0">Chug Chug</h2>
+              <p class="h5 m-0 pt-5">Contenido resumen de la sección del sitio</p>
+            </div>
+            <div class="col-12 col-md-7">
+              <img class="img-fluid" src="http://images.ctfassets.net/t72z2lh7n4xf/rVWNf1kBR64c2e6SuioGe/2ab32edf502ea5f63e9adcb79782fbe7/img_2_test.jpg?fm=jpg&q=30&w=871&h=500" alt="">
+            </div>
+          </div>
+        </div> -->
+
+        <hr>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+        <h3 class="w-100">Más contenidos</h3>
+      </section>
+    </div>
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -136,28 +169,24 @@
 
 
 <style>
+  /* Slider */
   .find-them-all { height: 100vh; }
-
   .VueCarousel-pagination {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
   }
-
   .VueCarousel-dot-button:focus { outline: 0!important; }
-
   .VueCarousel-navigation-button { color: white!important; }
   .VueCarousel-navigation-prev { left: 37px!important; }
   .VueCarousel-navigation-next { right: 37px!important; }
-
   figcaption {
     position: absolute;
     z-index: 1;
     width: 100%;
     bottom: 100px;
   }
-
   figure:after {
     content: '';
     position: absolute;
@@ -171,6 +200,30 @@
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 );
   }
+
+  /* Content */
+  .home-grid .img-container img {
+    /* -webkit-clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 0, 100% 0%, 100% 100%, 0% 100%); */
+    -webkit-clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* .home-grid .img-container:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 130px 130px 0 0;
+    border-color: #FFF transparent transparent transparent;
+  }
+
+  .home-grid .align-items-center:hover .img-container:after {
+    border-width: 500px 130px 0 0;
+  } */
 
 </style>
 
