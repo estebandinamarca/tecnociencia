@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="w-100 d-block px-0 py-5 text-center">
-      <h1 class="m-0">Logo</h1>
+    <div class="w-100 d-block px-4 py-5 text-center">
+      <img src="~static/imgs/logo.jpg" class="img-fluid px-5">
     </div>
     <div class="w-100 d-block pl-0 pr-3 m-0 text-left">
       <nuxt-link class="d-block font-weight-bold py-3 pl-5 scale" to="/" @click.native.prevent="$emit('navclick', false);" exact>Inicio</nuxt-link>

@@ -44,12 +44,12 @@
 $theme-colors: (
   "primary": #E9E9E9,
   "secondary": #CCC
-  // "success":    $success,
-  // "info":       $info,
+  //"success": $success,
+  //"info": #
   // "warning":    $warning,
   // "danger":     $danger,
   // "light":      $light,
-  // "dark":       $dark
+  //"dark": #
 );
 $font-size-base: .9rem;
 
@@ -80,10 +80,10 @@ $h: (
 
 // Responsive Display Text Sizes
 $c: (
-  display-1: $font-size-base * 2.5,
-  display-2: $font-size-base * 2,
-  display-3: $font-size-base * 1.75,
-  display-4: $font-size-base * 1.5
+  display-1: $display1-size,
+  display-2: $display2-size,
+  display-3: $display3-size,
+  display-4: $display4-size
 );
 @each $name, $breakpoint in $grid-breakpoints {
   @each $sname, $size in $c{
@@ -132,6 +132,7 @@ body {
   //font-family: 'Nunito', sans-serif;
   font-family: 'Work Sans', sans-serif;
 }
+body.body-scroll { overflow: hidden; }
 
 // Text Sizes
 .display-1,
@@ -139,14 +140,10 @@ body {
 .display-3,
 .display-4 { line-height: 1; }
 
-.home-grid {
-  .display-1,
-  .display-2,
-  .display-3,
-  .display-4 {
-    background-image: linear-gradient(transparent 66%, #EEFAFD 34%);
-    background-repeat: repeat-x;
-  }
+// Underline
+.underline {
+  background-image: linear-gradient(transparent 66%, #CEEEF6 34%);
+  background-repeat: repeat-x;
 }
 
 // General Hyperlink
@@ -193,3 +190,6 @@ a.text-link {
     }
   }
 }
+
+// Buttons
+.btn-rounded { border-radius: 100px; }

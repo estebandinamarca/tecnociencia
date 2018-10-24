@@ -37,7 +37,6 @@
 
       <!-- Nuxt App -->
       <nuxt></nuxt>
-
     </main>
 
   </div>
@@ -48,6 +47,8 @@
   /* Nav */
   nav {
     position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
     z-index: 1032;
     background: white;
     width: 20%;
@@ -55,7 +56,6 @@
     top: 0;
     left: 0;
     bottom: 0;
-    overflow: hidden;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
   }
@@ -112,12 +112,19 @@
         navMobile: false
       }
     },
+    head() {
+      return {
+        bodyAttrs: {
+          class: this.navMobile ? 'body-scroll' : ''
+        }
+      }
+    },
     components: {
       navigation
     },
     methods: {
       toggleNav() {
-        this.navMobile = !this.navMobile //? false : true;
+        this.navMobile = !this.navMobile; //? false : true;
       }
     },
     mounted() {

@@ -8,7 +8,7 @@
       </div>
     </section> -->
 
-    <div class="w-100">
+    <!-- <div class="w-100"> -->
       <section class="row no-gutters">
         <carousel
           :perPage="1"
@@ -38,25 +38,26 @@
               </a>
               <figcaption itemprop="caption" class="py-4 py-md-5 px-2 px-md-5 text-white">
                 <p class="m-0 pl-md-4"><i class="dripicons-location"></i> Arica</p>
-                <h1 class="display-4 my-2 pl-0 pl-md-4 font-weight-bold"> <i class="dripicons-location"></i> {{ item.fields.nombre }}</h1>
-                <p class="h6 h5-md m-0 pl-0 pl-md-4 font-weight-light">{{ item.sys.id }}</p>
+                <!-- <i class="dripicons-location"></i> -->
+                <h1 class="display-4 my-2 pl-0 pl-md-4 font-weight-bold">{{ item.fields.nombre }}</h1>
+                <p class="h6 h5-md m-0 pl-0 pl-md-4 font-weight-light">{{ item.fields.extracto }}</p>
               </figcaption>
             </figure>
           </slide>
         </carousel>
       </section>
-    </div>
+    <!-- </div> -->
 
     <div class="container-fluid py-5 home-grid">
       <section class="row no-gutters py-5">
 
         <div class="col-12" v-for="(item, index) in data.items" :key="item.sys.id">
-          <div class="row py-5 align-items-center">
+          <div class="row py-5 my-3 align-items-center">
             <div class="col-12 col-md-5">
               <!-- <p class="h5 m-0 pb-2 text-uppercase font-weight-light"><i class="text-primary fas fa-map-marker-alt"></i> Arica</p> -->
-              <h2 class="display-4 d-inline font-weight-bold m-0 p-0">{{ item.fields.nombre }}</h2>
-              <p class="h5 m-0 pt-5">{{ item.fields.extracto }}</p>
-              <a :href="'/rutas/' + item.fields.categoria + '/' + item.fields.slug" class="btn btn-outline-primary">Ver detalles</a>
+              <h2 class="display-4 d-inline font-weight-bold m-0 p-0 underline">{{ item.fields.nombre }}</h2>
+              <p class="h5 m-0 pt-5 font-weight-light">{{ item.fields.extracto }}</p>
+              <a :href="'/rutas/' + item.fields.categoria + '/' + item.fields.slug" class="btn btn-lg btn-outline-dark btn-rounded m-0 mt-5 px-5">Ver detalles</a>
             </div>
             <div class="col-12 col-md-7">
               <div class="w-100 position-relative img-container" v-if="item.fields.imgmain">
@@ -65,7 +66,7 @@
                   v-if="item.fields.imgmain.sys.id === img.sys.id"
                   class="img-fluid"
                   :src="img.fields.file.url"
-                  alt="">
+                  :alt="item.fields.nombre">
               </div>
             </div>
           </div>
@@ -167,7 +168,6 @@
   </div>
 </template>
 
-
 <style>
   /* Slider */
   .find-them-all { height: 100vh; }
@@ -224,7 +224,6 @@
   .home-grid .align-items-center:hover .img-container:after {
     border-width: 500px 130px 0 0;
   } */
-
 </style>
 
 <script>

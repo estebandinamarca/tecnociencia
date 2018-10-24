@@ -1,21 +1,34 @@
 <template>
-  <div class="container-fluid">
+  <div class="w-100">
 
-    <section class="row">
+    <div class="container-fluid">
+      <section class="row py-5">
+        <div class="col-12">
+          <h2 class="h3 display-4-md m-0 p-0 d-inline underline font-weight-bold">{{ $route.params.category | replaceCat }}</h2>
+        </div>
+      </section>
+    </div>
+
+
+    <!-- <section class="row">
       <h2>{{ $route.params.category | replaceCat }}</h2>
-    </section>
+    </section> -->
 
-    <section class="row">
-      <place
-        v-for="(place, index) in data.items"
-        thumbnail=""
-        :title="place.fields.nombre"
-        :previewText="place.fields.extracto"
-        :key="place.sys.id + index"
-        :slug="place.fields.nombre"
-        :href="'/rutas/' + place.fields.categoria + '/' + place.fields.slug"
-      />
-    </section>
+    <div class="container-fluid">
+      <section class="row">
+        <place
+          v-for="(place, index) in data.items"
+          :title="place.fields.nombre"
+          :previewText="place.fields.extracto"
+          :key="place.sys.id + index"
+          :slug="place.fields.nombre"
+          :covers="data.includes.Asset"
+          :coverid="place.fields.imgmain.sys.id"
+          :href="'/rutas/' + place.fields.categoria + '/' + place.fields.slug"
+        />
+      </section>
+    </div>
+
 
   </div>
 </template>
@@ -28,11 +41,7 @@
   import axios from 'axios';
 
   export default {
-    data() {
-      return {
-        //title: 'Tecnociencia'
-      }
-    },
+    data() {},
     head() {
       return {
         title: 'Tecnociencia en ruta',
@@ -54,13 +63,11 @@
         console.log(e);
         error({
           statusCode: 404,
-          message: 'Posts no encontrados.'
+          message: 'Contenido no encontrado'
         })
       })
     },
     methods: {},
-    mounted() {
-      console.log(process.env.contentful.accessToken);
-    }
+    mounted() {}
   }
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <div class="container-fluid">
+  <div class="w-100">
+
 
     <section class="row">
       <div class="col-12">
