@@ -14,6 +14,7 @@
             </figure>
           </div>
         </slide>
+        
         <!-- <slide>
           <div class="py-5 w-100 bg-primary">
             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -34,6 +35,7 @@
             </figure>
           </div>
         </slide> -->
+
       </carousel>
 
     </section>
@@ -164,20 +166,26 @@
     //   Slide
     // },
     asyncData({ params, error }) {
-      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + `/entries?fields.slug=${params.slug}&content_type=place&access_token=` + process.env.contentful.accessToken + `&limit=1`)
-        .then((response) => {
-          return {
-            data: response.data
-          }
+      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + '/entries', {
+        params: {
+          'content_type': 'place',
+          'fields.slug': params.slug,
+          'access_token': process.env.contentful.accessToken,
+          'limit': 1
+        }
+      }).then((response) => {
+        return {
+          data: response.data
+        }
+      })
+      .catch((e) => {
+        console.log(error);
+        console.log(e);
+        error({
+          statusCode: 404,
+          message: 'Post not found'
         })
-        .catch((e) => {
-          console.log(error);
-          console.log(e);
-          error({
-            statusCode: 404,
-            message: 'Post not found'
-          })
-        })
+      })
     },
     methods: {
       photoswipeInit() {
@@ -390,6 +398,5 @@
     mounted() {
       this.photoswipeInit();
     }
-
   }
 </script>

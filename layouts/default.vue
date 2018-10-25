@@ -43,7 +43,6 @@
 </template>
 
 <style lang="scss" scoped>
-
   /* Nav */
   nav {
     position: fixed;
@@ -79,10 +78,7 @@
     background: rgba(0, 0, 0, .8);
   }
 
-  main {
-    margin-left: 20%;
-    // padding-top: 57px;
-  }
+  main { margin-left: 20%; }
 
   /* Small devices (landscape phones, 576px and up) */
   @media (max-width: 575.98px) {

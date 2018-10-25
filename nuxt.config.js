@@ -96,6 +96,7 @@ module.exports = {
     //'bootstrap-vue/nuxt'
     ['bootstrap-vue/nuxt', { css: false }]
   ],
+
   /*
   ** Axios module configuration
   */
@@ -115,7 +116,6 @@ module.exports = {
       apiId: 't72z2lh7n4xf'
     }
   },
-
 
   /*
   ** Build configuration

@@ -9,7 +9,6 @@
       </section>
     </div>
 
-
     <!-- <section class="row">
       <h2>{{ $route.params.category | replaceCat }}</h2>
     </section> -->
@@ -28,7 +27,6 @@
         />
       </section>
     </div>
-
 
   </div>
 </template>
@@ -52,8 +50,15 @@
       place
     },
     asyncData ({ params, error }) {
-      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId +`/entries?content_type=place&fields.categoria=${params.category}&access_token=`+ process.env.contentful.accessToken +`&limit=10`)
-      .then((response) => {
+      //return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + `/entries?content_type=place&fields.categoria=${params.category}&access_token=`+ process.env.contentful.accessToken +`&limit=10`)
+      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + '/entries', {
+        params: {
+          'content_type': 'place',
+          'fields.categoria': params.category,
+          'access_token': process.env.contentful.accessToken,
+          'limit': 10
+        }
+      }).then((response) => {
         return {
           data: response.data
         }
