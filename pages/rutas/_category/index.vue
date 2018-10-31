@@ -9,10 +9,6 @@
       </section>
     </div>
 
-    <!-- <section class="row">
-      <h2>{{ $route.params.category | replaceCat }}</h2>
-    </section> -->
-
     <div class="container-fluid">
       <section class="row">
         <place
@@ -53,9 +49,9 @@
       //return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + `/entries?content_type=place&fields.categoria=${params.category}&access_token=`+ process.env.contentful.accessToken +`&limit=10`)
       return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + '/entries', {
         params: {
+          'access_token': process.env.contentful.accessToken,
           'content_type': 'place',
           'fields.categoria': params.category,
-          'access_token': process.env.contentful.accessToken,
           'limit': 10
         }
       }).then((response) => {
