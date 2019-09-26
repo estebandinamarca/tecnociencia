@@ -165,27 +165,50 @@
     //   Carousel,
     //   Slide
     // },
-    asyncData({ params, error }) {
-      return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + '/entries', {
-        params: {
-          'content_type': 'place',
-          'fields.slug': params.slug,
-          'access_token': process.env.contentful.accessToken,
-          'limit': 1
-        }
-      }).then((response) => {
-        return {
-          data: response.data
-        }
-      })
-      .catch((e) => {
-        console.log(error);
-        console.log(e);
-        error({
-          statusCode: 404,
-          message: 'Post not found'
+    asyncData({ params, error, route }) {
+      if(route.query.preview === 'on'){
+        return axios.get(process.env.contentful.apiUrlPreview + process.env.contentful.apiId + '/entries', {
+          params: {
+            'content_type': 'place',
+            'fields.slug': params.slug,
+            'access_token': process.env.contentful.accessToken,
+            'limit': 1
+          }
+        }).then((response) => {
+          return {
+            data: response.data
+          }
         })
-      })
+        .catch((e) => {
+          console.log(error);
+          console.log(e);
+          error({
+            statusCode: 404,
+            message: 'Post not found'
+          })
+        });
+      } else {
+        return axios.get(process.env.contentful.apiUrl + process.env.contentful.apiId + '/entries', {
+          params: {
+            'content_type': 'place',
+            'fields.slug': params.slug,
+            'access_token': process.env.contentful.accessToken,
+            'limit': 1
+          }
+        }).then((response) => {
+          return {
+            data: response.data
+          }
+        })
+        .catch((e) => {
+          console.log(error);
+          console.log(e);
+          error({
+            statusCode: 404,
+            message: 'Post not found'
+          })
+        });
+      }
     },
     methods: {
       photoswipeInit() {
@@ -393,9 +416,14 @@
         };
         // execute above function
         initPhotoSwipeFromDOM('.my-gallery');
+      },
+      detectParam() {
+        console.log('this.$route.params');
+        console.log(this.$route.query.preview);
       }
     },
     mounted() {
+      this.detectParam();
       this.photoswipeInit();
     }
   }

@@ -112,6 +112,7 @@ module.exports = {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     contentful: {
       apiUrl: 'https://cdn.contentful.com/spaces/',
+      apiUrlPreview: 'https://preview.contentful.com/spaces/',
       accessToken: '965bcecaa8a53e1ff31fde30437b9cfb2bf4a48657ec12bfbe5e4d570e524b21',
       apiId: 't72z2lh7n4xf'
     }
